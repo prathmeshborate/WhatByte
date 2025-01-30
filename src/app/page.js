@@ -129,7 +129,7 @@ const Dashboard = () => {
         </div>
         <div className="flex items-center space-x-2 border border-opacity-25 rounded-md p-1">
           <img src='/assets/Prath.jpg' alt="Profile" className="w-8 h-8 rounded-full" />
-          <span className="font-bold">Prathmesh Borate</span>
+          <span className="hidden md:inline font-bold">Prathmesh Borate</span>
         </div>
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -184,38 +184,39 @@ const Dashboard = () => {
                 </Card>
                 <Card>
                   <CardContent>
-                    <p className="font-bold mb-4">Quick Statistics</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
-                          <img src="/assets/trophy.png" alt="Trophy" className="w-6 h-6" />
-                        </div>
-                        <div className="ml-3 text-left">
-                          <p className="font-bold">{formValues.rank}</p>
-                          <p className="text-gray-500">Your Rank</p>
-                        </div>
-                      </div>
-                      <div className="h-16 w-px bg-gray-300"></div>
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
-                          <img src="/assets/notepad.png" alt="Notepad" className="w-6 h-6" />
-                        </div>
-                        <div className="ml-3 text-left">
-                          <p className="font-bold">{formValues.percentile}</p>
-                          <p className="text-gray-500">Percentile</p>
-                        </div>
-                      </div>
-                      <div className="h-16 w-px bg-gray-300"></div>
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
-                          <img src="/assets/correct.png" alt="Correct" className="w-8 h-8" />
-                        </div>
-                        <div className="ml-3 text-left">
-                          <p className="font-bold">{formValues.correct} / 15</p>
-                          <p className="text-gray-500">Correct Answers</p>
-                        </div>
-                      </div>
-                    </div>
+                  <p className="font-bold mb-4">Quick Statistics</p>
+<div className="flex flex-col md:flex-row items-start md:items-center justify-between">
+  <div className="flex items-center mb-4 md:mb-0">
+    <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+      <img src="/assets/trophy.png" alt="Trophy" className="w-6 h-6" />
+    </div>
+    <div className="ml-3 text-left">
+      <p className="font-bold">{formValues.rank}</p>
+      <p className="text-gray-500">Your Rank</p>
+    </div>
+  </div>
+  <div className="h-px md:h-16 w-full md:w-px bg-gray-300 mb-4 md:mb-0"></div>
+  <div className="flex items-center mb-4 md:mb-0">
+    <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+      <img src="/assets/notepad.png" alt="Notepad" className="w-6 h-6" />
+    </div>
+    <div className="ml-3 text-left">
+      <p className="font-bold">{formValues.percentile}</p>
+      <p className="text-gray-500">Percentile</p>
+    </div>
+  </div>
+  <div className="h-px md:h-16 w-full md:w-px bg-gray-300 mb-4 md:mb-0"></div>
+  <div className="flex items-center">
+    <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+      <img src="/assets/correct.png" alt="Correct" className="w-8 h-8" />
+    </div>
+    <div className="ml-3 text-left">
+      <p className="font-bold">{formValues.correct} / 15</p>
+      <p className="text-gray-500">Correct Answers</p>
+    </div>
+  </div>
+</div>
+
                   </CardContent>
                 </Card>
                 <Card>
@@ -307,14 +308,14 @@ const Dashboard = () => {
               { name: "percentile", label: "Percentile", warning: "Required | 0-100", icon: "/assets/two.png" },
               { name: "correct", label: "Correct Questions (Out of 15)", warning: "Required", icon: "/assets/three.png" },
             ].map(({ name, label, warning, icon }) => (
-              <div key={name} className="flex justify-between items-center mb-3">
-                <div className="flex items-center space-x-3">
+              <div key={name} className="flex flex-col md:flex-row justify-between items-center mb-3">
+                <div className="flex items-center space-x-3 mb-2 md:mb-0">
                   <img src={icon} alt={`${label} Icon`} className="w-8 h-8" />
                   <p className="text-black whitespace-nowrap">
                     Update your <span className="font-bold">{label}</span>
                   </p>
                 </div>
-                <div className="flex flex-col w-45 ml-auto">
+                <div className="flex flex-col w-full md:w-auto ml-auto">
                   <input
                     type="number"
                     name={name}
